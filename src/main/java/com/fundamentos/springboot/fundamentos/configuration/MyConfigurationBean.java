@@ -20,4 +20,14 @@ public class MyConfigurationBean {
     public MyBeanWithDependency beanOperationTres(MyOperation myOperation){
         return new MyBeanWithDependencyImplemen(myOperation);
     }
+
+    @Bean
+    public MyBeanFactorial beanOperationCuatro(){
+        return new MyBeanFactorialImplement();
+    }
+
+    @Bean
+    public MyBeanWhithDependencySum beanOperationCinco(MyBeanFactorial myBeanFactorial){
+        return new MyBeanWithDependencySumImplement(myBeanFactorial);
+    }
 }
