@@ -1,0 +1,113 @@
+¿Qué es Spring Boot?
+
+Proyecto basado en Spring. No es lo mismo que Spring. Es un proyecto que forma parte del core de Spring, al igual que Spring Cloud, etc.
+El objetivo principal es que sólo te centres en correr la aplicación, sin preocuparte por temas de configuración, etc.
+Tiene la gran ventaja poder integrar librerías de terceros de manera muy sencilla.
+No tendremos que preocuparnos por configuraciones a nivel de XML, sólo configuraciones mínimas a nivel de properties (ponerle el puerto, etc).
+No tendremos que preocuparnos de desplegar nuestra aplicación en un servidor web local cuando queramos hacer pruebas, Spring Boot también contempla esto y lleva incorporado un servidor web dónde se desplegará nuestra aplicación automáticamente.
+
+Características principales de Spring Boot
+
+Independiente: no tenemos que preocuparnos de las dependencias del core de Spring ni de la compilación de estas.
+Incrustado Tomcat, Jetty o Undertow: Spring Boot trae consigo un servidor web como los tres mencionados donde podemos correr nuestra aplicación sin preocuparnos de generar un artefacto WAR o JAR y desplegarlo nosotros mismos.
+Proporción de dependencias: no debemos preocuparnos por las configuraciones de depndencias de terceros o del core de Spring, Spring Boot se encargará de inyectar todo lo necesario.
+Sin generación de XML: No debemos preocuparnos de configuración XML para que nuestra aplicación funcione.
+Métricas de salud del aplicativo: podemos validar el estado de un servicio desplegado, sus dependencias, estado de memoria, magnitud de configuración, etc.
+
+¿Qué es una dependencia?
+
+Las dependencias tienen más que ver con el comportamiento que con las características. Es decir, hay dependencia por cuanto un comportamiento de una clase requiera objetos de otros tipos para cumplir con su objetivo. Las dependencias en programación orientada a objetos hacen referencia a cómo se interrelacionan los objetos. Si tienes una clase que tiene como atributo un objeto de otro tipo diremos entonces que una instancia de esta clase tiene una relación de dependencia con el tipo de su atributo.
+
+Pequeña característica de un objeto especifico, que puede impactar de manera particular en el funcionamiento de una unidad.
+Por ejemplo, las dependencias de un Smartphone serian:
+
+Cámara
+Micrófono
+Pantalla
+Batería
+Alta cohesión: Involucra que la entidad ejecute sus acciones sin involucrar otra clase o entidad.
+
+Bajo acoplamiento Hablamos de acoplamiento bajo cuando existe una independencia entre los componentes entre si, por el contrario un alto acoplamiento es cuando tenemos varias dependencias relacionadas a un solo componente.
+
+Entonces podemos afirmar que en la definición de un buen diseño de software se debe tener una ALTA COHESIÓN y un BAJO ACOPLAMIENTO.
+
+Para complementar con lo que se menciono en la clase relacionado a los principios solid, son importantes, cada una de las siglas de SOLID significan algo:
+
+S: Single responsibility principle** o Principio de responsabilidad única
+O: Open/closed principle** o Principio de abierto/cerrado
+L: Liskov substitution principle** o Principio de sustitución de Liskov
+I: Interface segregation principle** o Principio de segregación de la interfaz
+D: Dependency inversion principle** o Principio de inversión de dependencia.
+
+Como se menciono en la clase
+** El principio de responsabilidad única:** Indica que una clase, componente debe ser responsable de una sola cosa!.
+
+**O principio abierto cerrado: ** Establece que las clases deben estar abiertos para su extensión, esto quiere decir que idealmente a una clase ya hecha o función, no debería ser modifica, y toda su funcionalidad podrá ser extendida o heredada por quien la necesite.
+
+L principio de sustitución de liskov Nos dice que si una parte de nuestro código usamos una clase y creamos clases hijas esas clases hijas tienen que poder substituir a la clase padre sin ocasionar que el programa falle. En resumen si al heredar de una clase un método sobrescrito no hace nada o lanza una excepción es probable que no se este respetando este principio.
+
+**I Segregación de interfaces ** Este principio nos dice al momento de implementar una interfaz obligar al objeto, implementar métodos que no requiere usar. Por lo que para evitar esto es mejor hacer una segregación de interfaces, lo que es hacer interfaces mas especificar para evitar que este principio no sea violado.
+
+D Principio de inversión de dependencias Este principio establece que los módulos de alto nivel no deberían depender de módulos de bajo nivel. Ambos deberían depender de abstracciones.
+
+Inversión de control, a lo que se refiere es tranferir el control a un contenedor o un framework, el control del flujo del programa.
+A diferencia con llevar un flujo de un programa tradicional, linea a linea digamos.
+Cuando invertimos el control, le sacamos el control al flujo del programa y se lo damos al framework o el contenedor, un contenedor puede ser un usuario que utiliza o interactua con la aplicación Web, por ejemplo el usuario presiona un boton interactua con la aplicacion y esta realiza determinada tarea en base a esto.
+.
+Ventajas de inversion de control ( IoC )
+
+Desacoplamos toda nuestra logica a nivel de clases u objetos es decir de Dependencias.
+
+Ocultamos la implementacion de estas dependencias, por lo tanto logramos el beneficio de segregacion de interfaces.
+
+Facilita el testing por componentes o mocks de dependencias.
+
+Mayor modularidad de un programa.
+
+Los objetos que son administrados por el contenedor Spring IoC se denominan beans.
+
+Un bean es un objeto que es instanciado, ensamblado y administrado por un contenedor Spring IoC.
+.
+
+¿Qué es inyección de dependencias?
+
+.
+
+Implementación del principio de inversión de control.
+
+Definición de los otros objetos con los que trabajan.
+
+Clases más faciles de probar, en particular cuando son interfaces
+
+Inversion de control IoC
+Se refiere a la transferencia del control del flujo de un programa a un contenedor o framework.
+En un website o una app móvil el contenedor sería el usuario.
+Ventajas
+Facil testing por componentes o mocks de dependencias.
+Mayor modularización.
+Desacoplamiento cuando lo objetos cuentan con sus dependencias.
+Segmentación de interfaces.
+IoC en el contexto de spring boot
+Los objetos que son administrados por el contenedor, spring boot los denomina beans. Un bean seria los objetos administrados por el usuario en un website.
+Un bean es un objeto el cual es instanciado, ensamblado y administrado por el contenedor de spring IoC.
+Patron de inyección de dependencias
+Es el patrón que utiliza IoC para utilizar las dependencias anteriormente instanciadas por el contenedor de spring.
+
+Inversión de control es transferir el control de objetos de un programa a un framework o contenedor (ej.: usuario que interactúa con nuestra app). Las ventajas de la inversión de control es el desacople de toda nuestra lógica a nivel de clases, y dependencias. También facilita el testing.
+
+Un Bean es una dependencia inicializada e instanciada por Spring.
+
+La inyección de dependencias por su parte es el patrón de diseño que utiliza la IoC (Inversión de control).Ya que cada objeto cuenta con su propia implementación, con sus propias dependencias.
+
+AUTOCONFIGURACION Y RUNTIME
+Configura automáticamente tus aplicaciones basadas en dependencias JAR que agregaste mediante el pom.xml, pero si nosotros realizamos una configuración manual esta es priorizada por Spring Boot.
+
+@Component: anotación genérica, de ella nacen las siguientes (@Controller, @Service y @Repository). Se usa cuando tenemos una clase abstracta.
+
+@Controller: la usamos en las clases que se encargarán tanto de recibir las peticiones HTTP por parte de la parte frontal como devolver las respuestas de esas peticiones procesadas al frontal.
+
+@Service: la usamos en las clases que implementamos la lógica de negocio, es decir, dónde realizamos las validaciones.
+
+@Repository: la usamos en interfaces (no clases), donde nos ocuparemos de la obtención y persistencia de datos.
+
+Por lo que, un resumen podría ser: se hace petición HTTP desde la parte frontal a nuestra aplicación, el @Controller correspondiente recibe esa petición y llama al @Service para que este realice las validaciones correspondientes y además, llame al @Repository si fuera necesario para persistir o recuperar datos, el @Service devuelve respuesta al @Controller y el @Controller devuelve respuesta al frontal.
